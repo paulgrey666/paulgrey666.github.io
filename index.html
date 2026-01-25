@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURRLY — Collections</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, Arial, sans-serif;
+      background: #ffffff;
+      color: #111;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 920px;
+      text-align: center;
+    }
+
+    .brand {
+      font-family: "Space Grotesk", system-ui, Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 10px;
+      padding: 28px 18px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      background: #fff;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      font-family: "Space Grotesk", system-ui, Arial, sans-serif;
+      font-size: 16px;
+      margin: 0 0 6px;
+    }
+
+    .card p {
+      font-size: 13px;
+      opacity: 0.75;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+      /* ===== Footer (white theme) ===== */
+    .bottom{
+      margin-top: 100px;
+    }
+    footer{
+      margin-top:6px;
+      padding:22px 18px;
+      border:1px solid rgba(0,0,0,0.12);
+      border-radius:12px;
+      background:#fff;
+    }
+
+    .footer-inner{
+      display:grid;
+      grid-template-columns:1fr 0.35fr 1fr;
+      gap:16px;
+      align-items:start;
+    }
+
+    .footer-brand{
+      font-family:"Space Grotesk","Inter",system-ui,Arial,sans-serif;
+      font-weight:700;
+      letter-spacing:0.10em;
+      font-size:16px;
+      margin-bottom:8px;
+    }
+
+    .footer-text,.footer-meta{
+      margin:0;
+      font-size:13px;
+      line-height:1.5;
+      opacity:0.9;
+    }
+
+    .footer-title{
+      font-family:"Space Grotesk","Inter",system-ui,Arial,sans-serif;
+      font-weight:700;
+      font-size:13px;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+    }
+
+    .footer-links{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:10px;
+    }
+
+    .footer-links a{
+      color:#111;
+      text-decoration:none;
+      font-size:13px;
+      opacity:0.85;
+      border-bottom:1px solid transparent;
+      padding-bottom:2px;
+    }
+
+    .footer-links a:hover{
+      opacity:1;
+      border-bottom-color:rgba(0,0,0,0.35);
+    }
+
+    .footer-center{ min-height:1px; }
+
+    .smallprint{
+      margin-top:14px;
+      font-size:12px;
+      opacity:0.65;
+    }
+
+    @media (max-width:640px){
+      .footer-inner{ grid-template-columns:1fr; }
+      .footer-center{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="brand">UNITED DESIGNS GROUP CANADA INC.</div>
+    <div class="subtitle">Partenaires & Lignes de Produits</div>
+
+    <div class="grid">
+      <a class="card" href="index0.html">
+        <h2>Kore Utils</h2>
+        <p>Solutions Compactes</p>
+      </a>
+
+      <a class="card" href="index1.html">
+        <h2>Noir Systems</h2>
+        <p>Goth Designs & Decor</p>
+      </a>
+
+      <a class="card" href="index2.html">
+        <h2>Purrly Ltd.</h2>
+        <p>Produits pour Animaux</p>
+      </a>
+
+      <a class="card" href="index3.html">
+        <h2>FasTekk</h2>
+        <p>Accessoires Technologique</p>
+      </a>
+
+      <a class="card" href="index4.html">
+        <h2>EVDY-THG</h2>
+        <p>Daily utils</p>
+      </a>
+    </div>
+
+  <div class="bottom">
+  <footer role="contentinfo">
+    <div class="footer-inner">
+
+      <div class="footer-col footer-left">
+        <div class="footer-brand">UNITED DESIGNS GROUP CANADA INC.</div>
+        <p class="footer-text">
+          Produits consus et assembler au Canada.<br>
+          Solides, efficace et sans tarifs.
+        </p>
+        <p class="footer-meta" style="margin-top:10px;">
+          Adresse : 17 Rue Orleans Levis QC G6V 234<br>
+          Courriel : contact@tondomaine.com<br>
+        </p>
+      </div>
+
+      <div class="footer-col footer-center" aria-hidden="true"></div>
+
+      <div class="footer-col footer-right">
+        <div class="footer-title">Politiques</div>
+        <ul class="footer-links">
+          <li><a href="legal.html#confidentialite">Confidentialité</a></li>
+          <li><a href="legal.html#conditions">Conditions d’utilisation</a></li>
+          <li><a href="legal.html#livraison">Livraison</a></li>
+          <li><a href="legal.html#retours">Retours & remboursements</a></li>
+        </ul>
+
+        <div class="footer-title" style="margin-top:16px;">Comptes</div>
+        <ul class="footer-links">
+          <li><a href="#" rel="noopener">Instagram</a></li>
+          <li><a href="#" rel="noopener">TikTok</a></li>
+          <li><a href="#" rel="noopener">Etsy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="smallprint">
+      © <span id="year"></span> Nom légal de l’entreprise — Tous droits réservés.
+    </div>
+  </footer>
+</div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
