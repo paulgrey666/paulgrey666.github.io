@@ -1,0 +1,93 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  height: 100%;
+  overflow: hidden; /* ✅ seulement ici */
+}
+
+body{
+  background: #000;
+  color: #fff;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+#page-background{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image: url("../images/noir-systems.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.index-splash{
+  position: relative;
+  z-index: 1;
+
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 18px;
+  padding: 20px 16px 28px;
+}
+
+#home-img{
+  max-width: 100%;
+  width: auto;
+  height: auto;
+
+  max-height: calc(100vh - 140px);
+  max-height: calc(100svh - 140px);
+  max-height: calc(100dvh - 140px);
+
+  object-fit: contain;
+  display: block;
+}
+
+.lang-buttons{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.lang-btn{
+  min-width: 150px;
+  padding: 12px 22px;
+
+  text-align: center;
+  text-decoration: none;
+
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2px;
+
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.65);
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition: transform 220ms ease, background 220ms ease, border-color 220ms ease;
+}
+
+.lang-btn:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.95);
+}
