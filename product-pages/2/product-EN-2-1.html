@@ -1,473 +1,745 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,600,700" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/product.css">
-    <link rel="stylesheet" href="../../assets/css/multi-card0.css">
-    <link rel="stylesheet" href="../../assets/css/about.css">
-    <title>PRLY</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+  <title>Limited Edition 8 Mile Figurine — 500 Only</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --surface:#ffffff;
+      --surface2:#f6f7f9;
+      --border:rgba(15,23,42,.14);
+      --text:#0b0f19;
+      --muted:rgba(11,15,25,.72);
+
+      --accent:#e96326;
+      --blue:#21396d;
+
+      --shadow: 0 10px 26px rgba(2,6,23,.08);
+      --radius:18px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background: var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    img,video{max-width:100%;display:block}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      border-radius:14px;
+      padding:14px 18px;
+      font-weight:800;
+      border:1px solid transparent;
+      transition:transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{transform:scale(.98)}
+    .btn-primary{
+      background:#0b0f19;
+      color:#fff;
+      box-shadow: 0 10px 22px rgba(2,6,23,.10);
+    }
+    .btn-primary:hover{opacity:.95}
+    .btn-ghost{
+      background:var(--surface);
+      border-color:rgba(15,23,42,.18);
+      color:var(--text);
+    }
+    .btn-ghost:hover{background:rgba(2,6,23,.04)}
+
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border:1px solid rgba(15,23,42,.14);
+      background:rgba(2,6,23,.03);
+      border-radius:999px;
+      font-weight:700;
+      color:var(--muted);
+    }
+    .icon{width:18px;height:18px;display:inline-block}
+    .accent{color:var(--accent); font-weight:800}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(255,255,255,.86);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(15,23,42,.12);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900; letter-spacing:-.02em;
+    }
+    .logo{
+      width:38px;
+      height:38px;
+      border-radius:10px;
+      object-fit:contain;
+      display:block;
+    }
+    .links{
+      display:flex; align-items:center; gap:18px;
+      color:rgba(11,15,25,.78);
+      font-weight:700;
+    }
+    .links a:hover{color:var(--text); text-decoration:underline; text-underline-offset:5px}
+    .nav-actions{display:flex; align-items:center; gap:10px}
+    .burger{
+      display:none;
+      width:55px;height:55px;
+      border-radius:12px;
+      border:1px solid rgba(15,23,42,.14);
+      background:#fff;
+      color:var(--text);
+      align-items:center; justify-content:center;
+    }
+
+    /* Hero */
+    .hero{ padding:58px 0 26px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .hero-card{
+      background:var(--surface);
+      border:1px solid rgba(15,23,42,.12);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-left{
+      padding:26px;
+      min-height: 430px;
+      background:
+        radial-gradient(900px 520px at 10% 0%, rgba(22,163,74,.08), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(37,99,235,.08), transparent 60%),
+        #fff;
+    }
+    .kicker{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-bottom:14px;
+    }
+    h1{
+      margin:0 0 12px;
+      font-family:Poppins,Inter,system-ui;
+      font-size: clamp(38px, 4.6vw, 68px);
+      line-height: 1.03;
+      letter-spacing:-.04em;
+      color: var(--text);
+      text-shadow:none;
+    }
+    .sub{
+      margin:0 0 18px;
+      font-size: clamp(16px, 1.8vw, 20px);
+      color: var(--muted);
+      max-width: 60ch;
+    }
+    .hero-cta{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin:18px 0 18px;
+    }
+    .mini-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:12px;
+      margin-top:18px;
+    }
+    .mini{
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff;
+      color:rgba(11,15,25,.92);
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .mini span{
+      font-weight:800;
+      font-size:14px;
+      color:rgba(11,15,25,.84);
+    }
+
+    .hero-right{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .shot{
+      border-radius:16px;
+      border:1px solid rgba(15,23,42,.12);
+      background:rgba(2,6,23,.03);
+      overflow:hidden;
+      min-height: 330px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .shot img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:10px;
+    }
+    .note{
+      border-radius:16px;
+      border:1px solid rgba(15,23,42,.12);
+      background:rgba(2,6,23,.03);
+      padding:14px;
+      color:rgba(11,15,25,.82);
+    }
+    .note b{color:var(--text)}
+
+    /* Section */
+    section{padding:44px 0}
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+      margin-bottom:18px;
+    }
+    .section-head h2{
+      margin:0;
+      font-family:Poppins,Inter,system-ui;
+      font-size: clamp(22px, 2.6vw, 32px);
+      letter-spacing:-.02em;
+      color:var(--text);
+    }
+    .section-head p{margin:0; color:var(--muted); max-width:60ch}
+
+    /* Video */
+    .frame{
+      border-radius: var(--radius);
+      border:1px solid rgba(15,23,42,.12);
+      overflow:hidden;
+      background:#000;
+      box-shadow: var(--shadow);
+    }
+    .frame video{
+      width:100%;
+      height:min(62vh, 640px);
+      display:block;
+      background:#000;
+    }
+
+    /* Pricing */
+    .pricing-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .card{
+      background:var(--surface);
+      border:1px solid rgba(15,23,42,.12);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow: var(--shadow);
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(22,163,74,.22);
+      background:rgba(22,163,74,.08);
+      color:rgba(11,15,25,.90);
+      font-weight:800;
+    }
+    .price-row{
+      display:flex; align-items:flex-end; gap:10px;
+      margin:14px 0 10px;
+    }
+    .price{
+      font-family:Poppins,Inter,system-ui;
+      font-size: 56px;
+      line-height:1;
+      font-weight:900;
+      color:var(--text);
+      letter-spacing:-.03em;
+    }
+    .suffix{color:var(--muted); padding-bottom:6px; font-weight:700}
+    .features{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px 12px;
+      margin:14px 0 16px;
+      padding:0;
+      list-style:none;
+    }
+    .features li{
+      display:flex; align-items:flex-start; gap:10px;
+      color:rgba(11,15,25,.84);
+      font-weight:700;
+    }
+    .check{
+      width:18px;height:18px;
+      border-radius:6px;
+      background:rgba(22,163,74,.08);
+      border:1px solid rgba(22,163,74,.22);
+      display:inline-flex;
+      align-items:center; justify-content:center;
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+    .check svg{width:12px;height:12px; fill:var(--accent)}
+    .disclaimer{
+      margin:12px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .bullets{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:10px;
+      margin-top:14px;
+    }
+    .bullet{
+      border-radius:16px;
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff;
+      padding:12px;
+    }
+    .bullet b{display:block; margin-bottom:4px; color:var(--text)}
+    .bullet span{color:var(--muted); font-size:13px}
+
+    /* Features */
+    .feat-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:14px;
+    }
+    .feat{
+      border-radius:var(--radius);
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff;
+      padding:16px;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .feat:hover{
+      transform: translateY(-2px);
+      border-color: rgba(15,23,42,.20);
+      background: rgba(2,6,23,.02);
+    }
+    .feat h3{
+      margin:0 0 8px;
+      font-family:Poppins,Inter,system-ui;
+      font-size:18px;
+      letter-spacing:-.02em;
+      color:var(--text);
+    }
+    .feat p{margin:0; color:var(--muted)}
+
+    /* Footer */
+    footer{
+      padding:34px 0;
+      border-top:1px solid rgba(15,23,42,.12);
+      background:#fff;
+    }
+    .foot{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap:14px;
+      align-items:start;
+    }
+    .foot h4{
+      margin:0 0 10px;
+      font-family:Poppins,Inter,system-ui;
+      font-size:14px;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      color:rgba(11,15,25,.70);
+    }
+    .foot p{margin:0; color:var(--muted)}
+    .foot a{color:rgba(11,15,25,.78)}
+    .foot a:hover{color:var(--text); text-decoration:underline; text-underline-offset:5px}
+    .foot-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .bottom{
+      margin-top:18px;
+      padding-top:14px;
+      border-top:1px solid rgba(15,23,42,.12);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      color:rgba(11,15,25,.60);
+      font-size:14px;
+      flex-wrap:wrap;
+    }
+    .legal{display:flex; gap:14px; flex-wrap:wrap}
+
+    /* Mobile */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr}
+      .hero-right{ order: 0; }
+      .hero-left{ order: 1; }
+      .mini-grid{grid-template-columns: 1fr; }
+      .pricing-grid{grid-template-columns: 1fr}
+      .bullets{grid-template-columns: 1fr}
+      .feat-grid{grid-template-columns: 1fr}
+      .foot{grid-template-columns: 1fr}
+      .links{display:none}
+      .burger{display:inline-flex}
+      .features{grid-template-columns: 1fr}
+      .frame video{height: min(46vh, 420px)}
+      .price{font-size:48px}
+    }
+
+    /* Mobile menu dropdown */
+    .mobile-menu{
+      display:none;
+      padding: 0 0 14px;
+    }
+    .mobile-menu.open{display:block}
+    .mobile-menu .panel{
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff;
+      border-radius:16px;
+      padding:12px;
+      display:grid;
+      gap:10px;
+      box-shadow: var(--shadow);
+    }
+    .mobile-menu a{
+      padding:10px 10px;
+      border-radius:12px;
+      background:rgba(2,6,23,.03);
+      border:1px solid rgba(15,23,42,.10);
+      font-weight:800;
+      color:rgba(11,15,25,.90);
+    }
+  </style>
 </head>
+
 <body>
-<div id="page-background" aria-hidden="true"></div>
 
 <header>
-    <div class="logo"> <body id="top">
-      <span class="store-name">PURRLY</span>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="#">
+        <img
+          src="assets/images/small-ltddrop.png"
+          alt="Limited Drop logo"
+          class="logo"
+        />
+        <span>Limited Drop</span>
+      </a>
+
+      <nav class="links" aria-label="primary">
+        <a href="#features">Why it hits</a>
+        <a href="#pricing">Get it</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="https://square.link/u/ZLO63vDg?src=embed">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 7h14l-1.5 8.5a2 2 0 0 1-2 1.5H9a2 2 0 0 1-2-1.6L5 3H2" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="9" cy="21" r="1.5" fill="#ffffff"/><circle cx="17" cy="21" r="1.5" fill="#ffffff"/>
+          </svg>
+          Buy Now
+        </a>
+
+        <button class="burger" id="burger" type="button" aria-label="Open menu">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(11,15,25,.85)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
     </div>
 
-    <nav id="nav-bar">
-        <ul>
-            <li><a class="nav-link" href="#top">Home</a></li>
-            <li><a class="nav-link" href="#product-section">Products</a></li>
-            <li><a class="nav-link" href="#about-section">About</a></li>
-            <li><a class="nav-link" href="#footer">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="panel">
+        <a href="#features">Why it hits</a>
+        <a href="#pricing">Get it</a>
+        <a href="#video">More Details</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
 </header>
 
-<main class="page-content">
-  <div class="container text-center">
-    <h1></h1>
-  </div>
+<main>
 
-  <div class="card">
-    <div class="card__inner">
-      <img class="card__cover" src="../../assets/images/cat1.png" alt="Cover">
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
 
-      <div class="card__body">
-        <h2 class="card__header">
-          <span class="chips">
-            Cat Hammock
-            <svg class="icon"><use xlink:href="#icon-check"></use></svg>
-          </span>
-        </h2>
+        <div class="hero-card hero-left">
+          <div class="kicker">
+            <span class="pill">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2l2.2 6.7H21l-5.4 3.9 2.1 6.7L12 15.7 6.3 19.3l2.1-6.7L3 8.7h6.8L12 2z" stroke="rgba(11,15,25,.75)" stroke-width="1.6"/>
+              </svg>
+              Most wanted
+            </span>
+            <span class="pill">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 6v6l4 2" stroke="rgba(11,15,25,.75)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="rgba(11,15,25,.75)" stroke-width="2"/>
+              </svg>
+              Limited drop
+            </span>
+            <span class="pill">
+              <b style="color:var(--text);">Only 500 made</b>
+            </span>
+          </div>
 
-        <p>For great pets comes outstanding comfort.</p>
+          <h1>Limited Edition<br><span class="accent">8 Mile Figure</span></h1>
 
-        <p class="flex">
-          <span class="chips">
-            <svg class="icon"><use xlink:href="#icon-user"></use></svg>
-            114
-          </span>
-          <span class="chips">
-            <svg class="icon"><use xlink:href="#icon-cards"></use></svg>
-            92
-          <div class="square-buy-wrapper">
-            <div style="
-              overflow: hidden;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: left;
-              width: 259px;
-              background: transparent;
-              border: 1px solid transparent;
-              box-shadow: -2px 10px 5px rgba(0, 0, 0, 0);
-              border-radius: 10px;
-              font-family: SQ Market, Helvetica, Arial, sans-serif;
-            ">
-              <div style="padding: 0px;">
-                <a
-                  target="_blank"
-                  href="https://square.link/u/W45pOWdu?src=embed"
-                  rel="noopener"
-                  style="
-                    display: inline-block;
-                    font-size: 18px;
-                    line-height: 48px;
-                    height: 48px;
-                    color: #ffffff;
-                    min-width: 212px;
-                    background-color: #006aff;
-                    text-align: center;
-                    box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
-                    border-radius: 6px;
-                    text-decoration: none;
-                  "
-                >
-                  Buy now
-                </a>
-                </div>
-              </div>
+          <p class="sub">
+            This isn’t “just a figure”. It’s a statement piece. Clean details, collector vibe, and once it’s gone… it’s gone.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://square.link/u/ZLO63vDg?src=embed">Buy Now</a>
+            <a class="btn btn-ghost" href="#video">More Details</a>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2l2.8 6.4 6.9.6-5.2 4.5 1.6 6.8L12 17.9 5.9 20.3l1.6-6.8L2.3 9l6.9-.6L12 2z" stroke="rgba(11,15,25,.75)" stroke-width="1.6"/>
+              </svg>
+              <span>Collector-grade look</span>
             </div>
-        </p>
+            <div class="mini">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 12h16M12 4v16" stroke="rgba(11,15,25,.75)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Clean details, premium finish</span>
+            </div>
+            <div class="mini">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 7l-8 10-4-4" stroke="rgba(22,163,74,.95)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Ships protected, ready to display</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card hero-right">
+          <h1>
+            Custom:<span style="margin-left:26px; color:var(--text); font-weight:800;">Pop! Figure</span>
+          </h1>
+          <div class="shot">
+            <!-- Replace with your image -->
+            <img src="assets\images\em-6.png" alt="Limited edition figurine">
+          </div>
+          <div class="note">
+            <b>Heads up:</b> once the 500 are gone, this run doesn’t come back. If you’re thinking about it… don’t wait.
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="card">
-    <div class="card__inner">
-      <img class="card__cover" src="../../assets/images/cat7.png" alt="Cover">
+  <section id="video">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>See it up close</h2>
+          <p>A quick look so you can see the details, the shape, and the vibe before you grab yours.</p>
+        </div>
+      </div>
 
-      <div class="card__body">
-        <h2 class="card__header">
-          <span class="chips">
-            Silent Cat Scratcher
-            <svg class="icon"><use xlink:href="#icon-check"></use></svg>
-          </span>
-        </h2>
-
-        <p>For great pets comes outstanding comfort.</p>
-
-        <p class="flex">
-          <span class="chips">
-            <svg class="icon"><use xlink:href="#icon-user"></use></svg>
-            114
-          </span>
-          <span class="chips">
-            <svg class="icon"><use xlink:href="#icon-cards"></use></svg>
-            92
-           <div class="square-buy-wrapper">
-            <div style="
-              overflow: hidden;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: left;
-              width: 259px;
-              background: transparent;
-              border: 1px solid transparent;
-              box-shadow: -2px 10px 5px rgba(0, 0, 0, 0);
-              border-radius: 10px;
-              font-family: SQ Market, Helvetica, Arial, sans-serif;
-            ">
-              <div style="padding: 0px;">
-                <a
-                  target="_blank"
-                  href="https://square.link/u/52y5jTu2?src=embed"
-                  rel="noopener"
-                  style="
-                    display: inline-block;
-                    font-size: 18px;
-                    line-height: 48px;
-                    height: 48px;
-                    color: #ffffff;
-                    min-width: 212px;
-                    background-color: #006aff;
-                    text-align: center;
-                    box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
-                    border-radius: 6px;
-                    text-decoration: none;
-                  "
-                >
-                  Buy now
-                </a>
-                </div>
-              </div>
-            </div>
-        </p>
+      <div class="frame">
+        <!-- Replace poster + src with your own -->
+        <video controls preload="metadata" poster="assets\images\em-8.png">
+          <source src="YOUR_VIDEO.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
-  </div>
+  </section>
 
-  <figure class="snip1157">
-  <blockquote>Calvin: You know sometimes when I'm talking, my words can't keep up with my thoughts... I wonder why we think faster than we speak. Hobbes: Probably so we can think twice.
-    <div class="arrow"></div>
-  </blockquote>
-  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample3.jpg" alt="sq-sample3" />
-  <div class="author">
-    <h5>Pelican Steve <span> LIttleSnippets.net</span></h5>
-  </div>
-</figure>
+  <section id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Get it</h2>
+          <p>Simple: one clean offer, one checkout, no weird stuff.</p>
+        </div>
+      </div>
 
-   <div class="card">
-    <div class="card__inner">
-      <img class="card__cover" src="../../assets/images/cat4.png" alt="Cover">
+      <div class="pricing-grid">
 
-      <div class="card__body">
-        <h2 class="card__header">
-          <span class="chips">
-            Nutripurr Feeder
-            <svg class="icon"><use xlink:href="#icon-check"></use></svg>
+        <div class="card">
+          <span class="badge">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2l2.2 6.7H21l-5.4 3.9 2.1 6.7L12 15.7 6.3 19.3l2.1-6.7L3 8.7h6.8L12 2z" stroke="rgba(11,15,25,.75)" stroke-width="1.6"/>
+            </svg>
+            Most wanted
           </span>
-        </h2>
 
-        <p>For great pets comes outstanding comfort.</p>
+          <div class="price-row">
+            <div class="price">$97</div>
+            <div class="suffix">one-time</div>
+          </div>
 
-        <p class="flex">
-          <span class="chips">
-            <svg class="icon"><use xlink:href="#icon-user"></use></svg>
-            114
-          </span>
-          <span class="chips">
-            <svg class="icon"><use xlink:href="#icon-cards"></use></svg>
-            92
-          </span>
-          <div class="square-buy-wrapper">
-            <div style="
-              overflow: hidden;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: left;
-              width: 259px;
-              background: transparent;
-              border: 1px solid transparent;
-              box-shadow: -2px 10px 5px rgba(0, 0, 0, 0);
-              border-radius: 10px;
-              font-family: SQ Market, Helvetica, Arial, sans-serif;
-            ">
-              <div style="padding: 0px;">
-                <a
-                  target="_blank"
-                  href="https://square.link/u/gnsM4BE4?src=embed"
-                  rel="noopener"
-                  style="
-                    display: inline-block;
-                    font-size: 18px;
-                    line-height: 48px;
-                    height: 48px;
-                    color: #ffffff;
-                    min-width: 212px;
-                    background-color: #006aff;
-                    text-align: center;
-                    box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
-                    border-radius: 6px;
-                    text-decoration: none;
-                  "
-                >
-                  Buy now
-                </a>
-                </div>
-              </div>
+          <ul class="features">
+            <li><span class="check">
+              <svg viewBox="0 0 24 24"><path d="M20 7 10 17l-4-4"/></svg>
+            </span> Limited run: only 500</li>
+            <li><span class="check">
+              <svg viewBox="0 0 24 24"><path d="M20 7 10 17l-4-4"/></svg>
+            </span> Looks insane on a shelf</li>
+            <li><span class="check">
+              <svg viewBox="0 0 24 24"><path d="M20 7 10 17l-4-4"/></svg>
+            </span> Clean details, premium finish</li>
+            <li><span class="check">
+              <svg viewBox="0 0 24 24"><path d="M20 7 10 17l-4-4"/></svg>
+            </span> Ships protected, ready to display</li>
+          </ul>
+
+          <a class="btn btn-primary" style="width:100%" href="https://square.link/u/ZLO63vDg?src=embed">Purchase</a>
+
+          <p class="disclaimer">
+            Secure checkout. If anything arrives damaged, we make it right.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="shot" style="min-height:320px">
+            <img src="assets\images\em-7.png" alt="Figurine close-up">
+          </div>
+
+          <div class="bullets">
+            <div class="bullet">
+              <b>Instant display piece</b>
+              <span>Put it on your desk and it instantly changes the vibe.</span>
             </div>
-        </p>
+            <div class="bullet">
+              <b>Limited drop</b>
+              <span>Once the 500 are gone, this set won’t be restocked.</span>
+            </div>
+            <div class="bullet">
+              <b>Made to last</b>
+              <span>Solid build and a finish that stays sharp.</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
+  </section>
 
-  <figure class="snip1157 hover">
-  <blockquote>Thank you. before I begin, I'd like everyone to notice that my report is in a professional, clear plastic binder...When a report looks this good, you know it'll get an A. That's a tip kids. Write it down.
-    <div class="arrow"></div>
-  </blockquote>
-  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample27.jpg" alt="sq-sample27" />
-  <div class="author">
-    <h5>Max Conversion<span> LIttleSnippets.net</span></h5>
-  </div>
-</figure>
+  <section id="features">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Why you’ll want it</h2>
+          <p>Simple: it looks sick, it’s limited, and it’s the kind of piece people notice.</p>
+        </div>
+      </div>
 
-  <div class="card">
-    <div class="card__inner">
-      <img class="card__cover" src="../../assets/images/cat1.png" alt="Cover">
-
-      <div class="card__body">
-        <h2 class="card__header">
-          <span class="chips">
-            Cat Hammock
-            <svg class="icon"><use xlink:href="#icon-check"></use></svg>
-          </span>
-        </h2>
-
-        <p>For great pets comes outstanding comfort.</p>
-
-        <p class="flex">
-          <span class="chips">
-            <svg class="icon"><use xlink:href="#icon-user"></use></svg>
-            114
-          </span>
-          <span class="chips">
-            <svg class="icon"><use xlink:href="#icon-cards"></use></svg>
-            92
-          </span>
-          <div class="square-buy-wrapper">
-            <div style="
-              overflow: hidden;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: left;
-              width: 259px;
-              background: transparent;
-              border: 1px solid transparent;
-              box-shadow: -2px 10px 5px rgba(0, 0, 0, 0);
-              border-radius: 10px;
-              font-family: SQ Market, Helvetica, Arial, sans-serif;
-            ">
-              <div style="padding: 0px;">
-                <a
-                  target="_blank"
-                  href="https://square.link/u/W45pOWdu?src=embed"
-                  rel="noopener"
-                  style="
-                    display: inline-block;
-                    font-size: 18px;
-                    line-height: 48px;
-                    height: 48px;
-                    color: #ffffff;
-                    min-width: 212px;
-                    background-color: #006aff;
-                    text-align: center;
-                    box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
-                    border-radius: 6px;
-                    text-decoration: none;
-                  "
-                >
-                  Buy now
-                </a>
-                </div>
-              </div>
-            </div>
-        </p>
+      <div class="feat-grid">
+        <div class="feat">
+          <h3>Real collector vibe</h3>
+          <p>It doesn’t look like a toy. It’s a clean display piece with attitude.</p>
+        </div>
+        <div class="feat">
+          <h3>Details that pop</h3>
+          <p>Crisp lines and a look that stands out even from far away.</p>
+        </div>
+        <div class="feat">
+          <h3>Limited means rare</h3>
+          <p>500 total. When it sells out, the only way to get one is resale.</p>
+        </div>
       </div>
     </div>
-  </div>
-
-   <div class="card">
-    <div class="card__inner">
-      <img class="card__cover" src="../../assets/images/cat1.png" alt="Cover">
-
-      <div class="card__body">
-        <h2 class="card__header">
-          <span class="chips">
-            Cat Hammock
-            <svg class="icon"><use xlink:href="#icon-check"></use></svg>
-          </span>
-        </h2>
-
-        <p>For great pets comes outstanding comfort.</p>
-
-        <p class="flex">
-          <span class="chips">
-            <svg class="icon"><use xlink:href="#icon-user"></use></svg>
-            114
-          </span>
-          <span class="chips">
-            <svg class="icon"><use xlink:href="#icon-cards"></use></svg>
-            92
-          </span>
-          <div class="square-buy-wrapper">
-            <div style="
-              overflow: hidden;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: left;
-              width: 259px;
-              background: transparent;
-              border: 1px solid transparent;
-              box-shadow: -2px 10px 5px rgba(0, 0, 0, 0);
-              border-radius: 10px;
-              font-family: SQ Market, Helvetica, Arial, sans-serif;
-            ">
-              <div style="padding: 0px;">
-                <a
-                  target="_blank"
-                  href="https://square.link/u/W45pOWdu?src=embed"
-                  rel="noopener"
-                  style="
-                    display: inline-block;
-                    font-size: 18px;
-                    line-height: 48px;
-                    height: 48px;
-                    color: #ffffff;
-                    min-width: 212px;
-                    background-color: #006aff;
-                    text-align: center;
-                    box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
-                    border-radius: 6px;
-                    text-decoration: none;
-                  "
-                >
-                  Buy now
-                </a>
-                </div>
-              </div>
-            </div>
-        </p>
-      </div>
-    </div>
-  </div>
-
-<figure class="snip1157">
-  <blockquote>My behaviour is addictive functioning in a disease process of toxic co-dependency. I need holistic healing and wellness before I'll accept any responsibility for my actions.
-    <div class="arrow"></div>
-  </blockquote>
-  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample17.jpg" alt="sq-sample17" />
-  <div class="author">
-    <h5>Eleanor Faint<span> LIttleSnippets.net</span></h5>
-  </div>
-</figure>
+  </section>
 
 </main>
 
-<section id="about-section" class="scroll-fade">
-  <h1>
-    ABOUT US
-    <br>
-    <img src="https://image.ibb.co/nk616F/Layer_1_copy_21.png" width="47" height="11" align="center">
-  </h1>
-  <article>
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-      type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-      remaining. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-      industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-      to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-      typesetting, remaining .
-    </p>
-  </article>
+<footer id="contact">
+  <div class="container">
+    <div class="foot">
+      <div>
+        <div class="brand" style="margin-bottom:10px">
+          <img
+            src="../../assets/images/small-ltddrop.png"
+            alt="Limited Drop logo"
+            class="logo"
+          />
+          <span>Limited Drop</span>
+        </div>
+        <p>Small batch collectibles made to be displayed, not forgotten.</p>
+      </div>
 
-  <div class="social_icons">
-    <div class="square"><div class="icons"><i class="fa fa-facebook" aria-hidden="true"></i></div></div>
-    <div class="square"><div class="icons"><i class="fa fa-youtube" aria-hidden="true"></i></div></div>
-    <div class="square"><div class="icons"><i class="fa fa-twitter" aria-hidden="true"></i></div></div>
-    <div class="square"><div class="icons"><i class="fa fa-dribbble" aria-hidden="true"></i></div></div>
-  </div>
-</section>
+      <div>
+        <h4>Contact</h4>
+        <ul class="foot-list">
+          <li><a href="mailto:hello@yourstore.com">hello@yourstore.com</a></li>
+          <li><a href="tel:+10000000000">Support: +1 (000) 000-0000</a></li>
+          <li><span style="color:var(--muted)">Ships worldwide</span></li>
+        </ul>
+      </div>
 
-<footer id="footer" class="site-footer scroll-fade" role="contentinfo">
-  <div class="footer-inner">
-
-    <!-- Left column: company info -->
-    <div class="footer-col footer-left">
-      <div class="footer-brand">PURRLY</div>
-      <p class="footer-text">
-        3D-printed pet products.<br>
-        Made in Québec. Strong, clean, and built to last.
-      </p>
-
-      <p class="footer-meta">
-        © <span id="footer-year"></span> PURRLY<br>
-        <!-- Example: -->
-        <!-- Québec, Canada -->
-      </p>
+      <div>
+        <h4>Links</h4>
+        <ul class="foot-list">
+          <li><a href="#features">Why it hits</a></li>
+          <li><a href="#pricing">Get it</a></li>
+          <li><a href="#video">More Details</a></li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Center column: intentionally empty -->
-    <div class="footer-col footer-center" aria-hidden="true"></div>
-
-    <!-- Right column: required policy links -->
-    <div class="footer-col footer-right">
-      <div class="footer-title">Policies</div>
-      <ul class="footer-links">
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
-        <li><a href="shipping.html">Shipping Policy</a></li>
-        <li><a href="returns.html">Returns & Refunds</a></li>
-      </ul>
+    <div class="bottom">
+      <div>© 2026 Limited Drop. All rights reserved.</div>
+      <div class="legal">
+        <a href="legal.html">Privacy</a>
+        <a href="#legal.html">Terms</a>
+        <a href="#legal.html">Support</a>
+      </div>
     </div>
-
   </div>
 </footer>
 
-<svg width="0" height="0" class="display-none">
-  <symbol id="icon-plus" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor"><path d="M453-140v-313H140v-54h313v-313h54v313h313v54H507v313h-54Z"/></symbol>
-  <symbol id="icon-user" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor"><path d="M480-524q-54.55 0-92.27-37.72Q350-599.45 350-654q0-54.55 37.73-92.28Q425.45-784 480-784t92.28 37.72Q610-708.55 610-654q0 54.55-37.72 92.28Q534.55-524 480-524ZM182-171v-83q0-29 15.69-52.85Q213.38-330.71 240-344q59-29 119.41-43.5t120.5-14.5q60.09 0 120.59 14.5T720-344q26.63 13.29 42.31 37.15Q778-283 778-254v83H182Zm54-54h488v-29q0-14-7.5-24.5T695-296q-49-23-105.19-37.5Q533.63-348 480-348t-109.81 14Q314-320 265-296q-14 6-21.5 17t-7.5 25v29Zm244-353q32 0 54-22t22-54q0-32-22-54t-54-22q-32 0-54 22t-22 54q0 32 22 54t54 22Zm0-76Zm0 429Z"/></symbol>
-  <symbol id="icon-cards" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor"><path d="m493-469 87-52 87 52-24-98 77-67-101-9-39-92-39 92-101 9 77 67-24 98Zm129 257h118q9 18-10.5 28.5T691-170l-447 58q-36 3-63.4-18.65Q153.19-152.3 149-188l-49-382q-4-36 18.35-64.86Q140.7-663.71 177-667l33-1v54l-28 1q-14 1-22 11.5t-6 24.5l48 383q2 14 12 22t24 6l384-46Zm-246-80q-36.73 0-61.36-24.64Q290-341.27 290-378v-408q0-36.72 24.64-61.36Q339.27-872 376-872h408q36.72 0 61.36 24.64T870-786v408q0 36.73-24.64 61.36Q820.72-292 784-292H376Zm0-54h408q14 0 23-9t9-23v-408q0-14-9-23t-23-9H376q-14 0-23 9t-9 23v408q0 14 9 23t23 9Zm204-236ZM196-162Z"/></symbol>
-  <symbol id="icon-check" height="35" viewBox="0 -960 960 960" width="35" fill="currentColor"><path d="m443-429 169-169-38-39-131 132-57-56-38 38 95 94ZM222-160v-578q0-36.72 24.64-61.36Q271.27-824 308-824h344q36.72 0 61.36 24.64T738-738v578L480-270 222-160Zm54-82 204-87.66L684-242v-496q0-12-10-22t-22-10H308q-12 0-22 10t-10 22v496Zm0-528h408-408Z"/></symbol>
-  <symbol id="icon-bag" height="24" viewBox="0 0 24 24" width="24" fill="currentColor"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.2 14h9.6c.8 0 1.5-.5 1.8-1.2l3.2-6.4a1 1 0 0 0-.9-1.4H6.1L5.3 2H2v2h2l3.6 7.6-1.4 2.4C5.8 14.8 6.4 16 7.2 16z"/></symbol>
-</svg>
-
 <script>
-  document.getElementById("footer-year").textContent = new Date().getFullYear();
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+
+  burger?.addEventListener('click', () => {
+    menu.classList.toggle('open');
+  });
+
+  // Close menu when clicking a link
+  menu?.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    menu.classList.remove('open');
+  });
 </script>
 
 </body>

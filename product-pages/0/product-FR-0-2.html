@@ -1,223 +1,706 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,600,700" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/product.css">
-    <link rel="stylesheet" href="../../assets/css/about.css">
-    <title>PRLY</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+  <title>Figurine 8 Mile – Édition limitée — 500 seulement</title>
 
-<style>
-  body {
-    padding-top: 95px !important;
-  }
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
+ <style>
+    :root{
+      --bg:#ffffff;
+      --surface:#ffffff;
+      --surface2:#f6f7f9;
+      --border:rgba(15,23,42,.14);
+      --text:#0b0f19;
+      --muted:rgba(11,15,25,.72);
+
+      --accent:#e96326;
+      --blue:#21396d;
+
+      --shadow: 0 10px 26px rgba(2,6,23,.08);
+      --radius:18px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background: var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    img,video{max-width:100%;display:block}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      border-radius:14px;
+      padding:14px 18px;
+      font-weight:800;
+      border:1px solid transparent;
+      transition:transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{transform:scale(.98)}
+    .btn-primary{
+      background:#0b0f19;
+      color:#fff;
+      box-shadow: 0 10px 22px rgba(2,6,23,.10);
+    }
+    .btn-primary:hover{opacity:.95}
+    .btn-ghost{
+      background:var(--surface);
+      border-color:rgba(15,23,42,.18);
+      color:var(--text);
+    }
+    .btn-ghost:hover{background:rgba(2,6,23,.04)}
+
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border:1px solid rgba(15,23,42,.14);
+      background:rgba(2,6,23,.03);
+      border-radius:999px;
+      font-weight:700;
+      color:var(--muted);
+    }
+    .icon{width:18px;height:18px;display:inline-block}
+    .accent{color:var(--accent); font-weight:800}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(255,255,255,.86);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(15,23,42,.12);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900; letter-spacing:-.02em;
+    }
+    .logo{
+      width:38px;
+      height:38px;
+      border-radius:10px;
+      object-fit:contain;
+      display:block;
+    }
+    .links{
+      display:flex; align-items:center; gap:18px;
+      color:rgba(11,15,25,.78);
+      font-weight:700;
+    }
+    .links a:hover{color:var(--text); text-decoration:underline; text-underline-offset:5px}
+    .nav-actions{display:flex; align-items:center; gap:10px}
+    .burger{
+      display:none;
+      width:55px;height:55px;
+      border-radius:12px;
+      border:1px solid rgba(15,23,42,.14);
+      background:#fff;
+      color:var(--text);
+      align-items:center; justify-content:center;
+    }
+
+    /* Hero */
+    .hero{ padding:58px 0 26px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .hero-card{
+      background:var(--surface);
+      border:1px solid rgba(15,23,42,.12);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-left{
+      padding:26px;
+      min-height: 430px;
+      background:
+        radial-gradient(900px 520px at 10% 0%, rgba(22,163,74,.08), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(37,99,235,.08), transparent 60%),
+        #fff;
+    }
+    .kicker{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-bottom:14px;
+    }
+    h1{
+      margin:0 0 12px;
+      font-family:Poppins,Inter,system-ui;
+      font-size: clamp(38px, 4.6vw, 68px);
+      line-height: 1.03;
+      letter-spacing:-.04em;
+      color: var(--text);
+      text-shadow:none;
+    }
+    .sub{
+      margin:0 0 18px;
+      font-size: clamp(16px, 1.8vw, 20px);
+      color: var(--muted);
+      max-width: 60ch;
+    }
+    .hero-cta{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin:18px 0 18px;
+    }
+    .mini-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:12px;
+      margin-top:18px;
+    }
+    .mini{
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff;
+      color:rgba(11,15,25,.92);
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .mini span{
+      font-weight:800;
+      font-size:14px;
+      color:rgba(11,15,25,.84);
+    }
+
+    .hero-right{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .shot{
+      border-radius:16px;
+      border:1px solid rgba(15,23,42,.12);
+      background:rgba(2,6,23,.03);
+      overflow:hidden;
+      min-height: 330px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .shot img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:10px;
+    }
+    .note{
+      border-radius:16px;
+      border:1px solid rgba(15,23,42,.12);
+      background:rgba(2,6,23,.03);
+      padding:14px;
+      color:rgba(11,15,25,.82);
+    }
+    .note b{color:var(--text)}
+
+    /* Section */
+    section{padding:44px 0}
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+      margin-bottom:18px;
+    }
+    .section-head h2{
+      margin:0;
+      font-family:Poppins,Inter,system-ui;
+      font-size: clamp(22px, 2.6vw, 32px);
+      letter-spacing:-.02em;
+      color:var(--text);
+    }
+    .section-head p{margin:0; color:var(--muted); max-width:60ch}
+
+    /* Video */
+    .frame{
+      border-radius: var(--radius);
+      border:1px solid rgba(15,23,42,.12);
+      overflow:hidden;
+      background:#000;
+      box-shadow: var(--shadow);
+    }
+    .frame video{
+      width:100%;
+      height:min(62vh, 640px);
+      display:block;
+      background:#000;
+    }
+
+    /* Pricing */
+    .pricing-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .card{
+      background:var(--surface);
+      border:1px solid rgba(15,23,42,.12);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow: var(--shadow);
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(22,163,74,.22);
+      background:rgba(22,163,74,.08);
+      color:rgba(11,15,25,.90);
+      font-weight:800;
+    }
+    .price-row{
+      display:flex; align-items:flex-end; gap:10px;
+      margin:14px 0 10px;
+    }
+    .price{
+      font-family:Poppins,Inter,system-ui;
+      font-size: 56px;
+      line-height:1;
+      font-weight:900;
+      color:var(--text);
+      letter-spacing:-.03em;
+    }
+    .suffix{color:var(--muted); padding-bottom:6px; font-weight:700}
+    .features{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px 12px;
+      margin:14px 0 16px;
+      padding:0;
+      list-style:none;
+    }
+    .features li{
+      display:flex; align-items:flex-start; gap:10px;
+      color:rgba(11,15,25,.84);
+      font-weight:700;
+    }
+    .check{
+      width:18px;height:18px;
+      border-radius:6px;
+      background:rgba(22,163,74,.08);
+      border:1px solid rgba(22,163,74,.22);
+      display:inline-flex;
+      align-items:center; justify-content:center;
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+    .check svg{width:12px;height:12px; fill:var(--accent)}
+    .disclaimer{
+      margin:12px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .bullets{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:10px;
+      margin-top:14px;
+    }
+    .bullet{
+      border-radius:16px;
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff;
+      padding:12px;
+    }
+    .bullet b{display:block; margin-bottom:4px; color:var(--text)}
+    .bullet span{color:var(--muted); font-size:13px}
+
+    /* Features */
+    .feat-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:14px;
+    }
+    .feat{
+      border-radius:var(--radius);
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff;
+      padding:16px;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .feat:hover{
+      transform: translateY(-2px);
+      border-color: rgba(15,23,42,.20);
+      background: rgba(2,6,23,.02);
+    }
+    .feat h3{
+      margin:0 0 8px;
+      font-family:Poppins,Inter,system-ui;
+      font-size:18px;
+      letter-spacing:-.02em;
+      color:var(--text);
+    }
+    .feat p{margin:0; color:var(--muted)}
+
+    /* Footer */
+    footer{
+      padding:34px 0;
+      border-top:1px solid rgba(15,23,42,.12);
+      background:#fff;
+    }
+    .foot{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap:14px;
+      align-items:start;
+    }
+    .foot h4{
+      margin:0 0 10px;
+      font-family:Poppins,Inter,system-ui;
+      font-size:14px;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      color:rgba(11,15,25,.70);
+    }
+    .foot p{margin:0; color:var(--muted)}
+    .foot a{color:rgba(11,15,25,.78)}
+    .foot a:hover{color:var(--text); text-decoration:underline; text-underline-offset:5px}
+    .foot-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .bottom{
+      margin-top:18px;
+      padding-top:14px;
+      border-top:1px solid rgba(15,23,42,.12);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      color:rgba(11,15,25,.60);
+      font-size:14px;
+      flex-wrap:wrap;
+    }
+    .legal{display:flex; gap:14px; flex-wrap:wrap}
+
+    /* Mobile */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr}
+      .hero-right{ order: 0; }
+      .hero-left{ order: 1; }
+      .mini-grid{grid-template-columns: 1fr; }
+      .pricing-grid{grid-template-columns: 1fr}
+      .bullets{grid-template-columns: 1fr}
+      .feat-grid{grid-template-columns: 1fr}
+      .foot{grid-template-columns: 1fr}
+      .links{display:none}
+      .burger{display:inline-flex}
+      .features{grid-template-columns: 1fr}
+      .frame video{height: min(46vh, 420px)}
+      .price{font-size:48px}
+    }
+
+    /* Mobile menu dropdown */
+    .mobile-menu{
+      display:none;
+      padding: 0 0 14px;
+    }
+    .mobile-menu.open{display:block}
+    .mobile-menu .panel{
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff;
+      border-radius:16px;
+      padding:12px;
+      display:grid;
+      gap:10px;
+      box-shadow: var(--shadow);
+    }
+    .mobile-menu a{
+      padding:10px 10px;
+      border-radius:12px;
+      background:rgba(2,6,23,.03);
+      border:1px solid rgba(15,23,42,.10);
+      font-weight:800;
+      color:rgba(11,15,25,.90);
+    }
+  </style>
 </head>
+
 <body>
 
-<div id="page-background" aria-hidden="true"></div>
-
 <header>
-    <div class="logo"> <body id="top">
-      <span class="store-name">PURRLY</span>
-    </div>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="#">
+        <img
+          src="assets/images/small-ltddrop.png"
+          alt="Logo Limited Drop"
+          class="logo"
+        />
+        <span>Limited Drop</span>
+      </a>
 
-    <nav id="nav-bar">
-        <ul>
-            <li><a class="nav-link" href="#top">Accueil</a></li>
-            <li><a class="nav-link" href="#product-section">Produits</a></li>
-            <li><a class="nav-link" href="#about-section">À propos</a></li>
-            <li><a class="nav-link" href="#footer">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
-<!-- PRODUITS (UNE seule section + plusieurs cards) -->
-<section id="product-section" class="scroll-fade">
-  <h2 class="section-title"></h2>
-
-  <div class="product-items">
-
-    <div class="card">
-      <nav class="card-nav">
-        <svg class="arrow" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve"
-          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " stroke="#727272"/>
-        </svg>
-        Retour à tous les articles
-        <svg class="heart" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" stroke="#727272"
-          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <path d="M340.8,98.4c50.7,0,91.9,41.3,91.9,92.3c0,26.2-10.9,49.8-28.3,66.6L256,407.1L105,254.6c-15.8-16.6-25.6-39.1-25.6-63.9  c0-51,41.1-92.3,91.9-92.3c38.2,0,70.9,23.4,84.8,56.8C269.8,121.9,302.6,98.4,340.8,98.4 M340.8,83C307,83,276,98.8,256,124.8  c-20-26-51-41.8-84.8-41.8C112.1,83,64,131.3,64,190.7c0,27.9,10.6,54.4,29.9,74.6L245.1,418l10.9,11l10.9-11l148.3-149.8  c21-20.3,32.8-47.9,32.8-77.5C448,131.3,399.9,83,340.8,83L340.8,83z" stroke="#727272"/>
-        </svg>
+      <nav class="links" aria-label="principal">
+        <a href="#features">Pourquoi elle frappe</a>
+        <a href="#pricing">L’obtenir</a>
+        <a href="#contact">Contact</a>
       </nav>
 
-      <div class="photo">
-        <img src="../../assets/images/cat1.png" alt="Article">
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="https://square.link/u/ZLO63vDg?src=embed">
+          Acheter maintenant
+        </a>
+
+        <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu">
+          ☰
+        </button>
       </div>
+    </div>
 
-      <div class="description">
-        <h2>Hamac pour chat</h2>
-        <h4>Populaire</h4>
-        <h1>29,95</h1>
-        <p>Petite description du produit ici.</p>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="panel">
+        <a href="#features">Pourquoi elle frappe</a>
+        <a href="#pricing">L’obtenir</a>
+        <a href="#video">Plus de détails</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</header>
 
-        <!-- Square Buy Button Embed -->
-        <div class="square-buy-wrapper">
-          <div style="
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: left;
-            width: 259px;
-            background: #FFFFFF;
-            border: 1px solid transparent;
-            box-shadow: -2px 10px 5px rgba(0, 0, 0, 0);
-            border-radius: 10px;
-            font-family: SQ Market, Helvetica, Arial, sans-serif;
-          ">
-            <div style="padding: 0px;">
-              <a
-                target="_blank"
-                href="https://square.link/u/W45pOWdu?src=embed"
-                rel="noopener"
-                style="
-                  display: inline-block;
-                  font-size: 18px;
-                  line-height: 48px;
-                  height: 48px;
-                  color: #ffffff;
-                  min-width: 212px;
-                  background-color: #006aff;
-                  text-align: center;
-                  box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
-                  border-radius: 6px;
-                  text-decoration: none;
-                "
-              >
-                Acheter maintenant
-              </a>
+<main>
+
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div class="hero-card hero-left">
+          <div class="kicker">
+            <span class="pill">La plus demandée</span>
+            <span class="pill">Drop limité</span>
+            <span class="pill"><b>Seulement 500 fabriquées</b></span>
+          </div>
+
+          <h1>Édition limitée<br><span class="accent">Figurine 8 Mile</span></h1>
+
+          <p class="sub">
+            Ce n’est pas « juste une figurine ». C’est une pièce forte. Des détails propres,
+            une vibe de collection, et une fois que c’est vendu… c’est fini.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://square.link/u/ZLO63vDg?src=embed">Acheter maintenant</a>
+            <a class="btn btn-ghost" href="#video">Voir les détails</a>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini">
+              <span>Look de collectionneur</span>
+            </div>
+            <div class="mini">
+              <span>Détails nets, finition premium</span>
+            </div>
+            <div class="mini">
+              <span>Expédiée protégée, prête à exposer</span>
             </div>
           </div>
         </div>
 
-        <button type="button">Liste de souhaits</button>
+        <div class="hero-card hero-right">
+          <h1>
+            Personnalisée :
+            <span style="margin-left:26px; font-weight:800;">Figurine Pop!</span>
+          </h1>
+          <div class="shot">
+            <img src="assets/images/em-6.png" alt="Figurine édition limitée">
+          </div>
+          <div class="note">
+            <b>À savoir :</b> quand les 500 sont parties, cette édition ne revient pas.
+            Si tu hésites… attends pas.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="video">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Voir de près</h2>
+          <p>
+            Un aperçu rapide pour voir les détails, la forme et la vibe avant de prendre la tienne.
+          </p>
+        </div>
+      </div>
+
+      <div class="frame">
+        <video controls preload="metadata" poster="assets/images/em-8.png">
+          <source src="YOUR_VIDEO.mp4" type="video/mp4">
+          Ton navigateur ne supporte pas la vidéo.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>L’obtenir</h2>
+          <p>Simple : une seule offre claire, un paiement rapide, rien de louche.</p>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+
+        <div class="card">
+          <span class="badge">La plus demandée</span>
+
+          <div class="price-row">
+            <div class="price">97 $</div>
+            <div class="suffix">paiement unique</div>
+          </div>
+
+          <ul class="features">
+            <li>Édition limitée : 500 seulement</li>
+            <li>Parfaite sur une étagère</li>
+            <li>Détails propres, finition premium</li>
+            <li>Expédiée protégée, prête à exposer</li>
+          </ul>
+
+          <a class="btn btn-primary" style="width:100%" href="https://square.link/u/ZLO63vDg?src=embed">
+            Acheter
+          </a>
+
+          <p class="disclaimer">
+            Paiement sécurisé. Si quelque chose arrive endommagé, on s’en occupe.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="shot" style="min-height:320px">
+            <img src="assets/images/em-7.png" alt="Gros plan de la figurine">
+          </div>
+
+          <div class="bullets">
+            <div class="bullet">
+              <b>Pièce à exposer instantanément</b>
+              <span>Tu la poses, la vibe change direct.</span>
+            </div>
+            <div class="bullet">
+              <b>Drop limité</b>
+              <span>Une fois les 500 vendues, pas de restock.</span>
+            </div>
+            <div class="bullet">
+              <b>Conçue pour durer</b>
+              <span>Construction solide et finition qui reste clean.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Pourquoi tu vas la vouloir</h2>
+          <p>
+            Simple : elle est solide, elle est rare, et c’est le genre de pièce que les gens remarquent.
+          </p>
+        </div>
+      </div>
+
+      <div class="feat-grid">
+        <div class="feat">
+          <h3>Vraie vibe de collection</h3>
+          <p>Ce n’est pas un jouet. C’est une pièce d’expo avec du caractère.</p>
+        </div>
+        <div class="feat">
+          <h3>Détails qui ressortent</h3>
+          <p>Des lignes nettes qui frappent même de loin.</p>
+        </div>
+        <div class="feat">
+          <h3>Limité = rare</h3>
+          <p>500 au total. Après ça, c’est seulement la revente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="container">
+    <div class="foot">
+      <div>
+        <div class="brand" style="margin-bottom:10px">
+          <img src="../../assets/images/small-ltddrop.png" alt="Logo Limited Drop" class="logo"/>
+          <span>Limited Drop</span>
+        </div>
+        <p>Objets de collection en petites séries, faits pour être exposés.</p>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <ul class="foot-list">
+          <li><a href="mailto:hello@yourstore.com">hello@yourstore.com</a></li>
+          <li><a href="tel:+10000000000">Support : +1 (000) 000-0000</a></li>
+          <li><span>Expédition mondiale</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Liens</h4>
+        <ul class="foot-list">
+          <li><a href="#features">Pourquoi elle frappe</a></li>
+          <li><a href="#pricing">L’obtenir</a></li>
+          <li><a href="#video">Plus de détails</a></li>
+        </ul>
       </div>
     </div>
 
-    <!-- Copie #2 -->
-    <div class="card">
-      <nav class="card-nav">
-        <svg class="arrow" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve"
-          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " stroke="#727272"/>
-        </svg>
-        Retour à tous les articles
-        <svg class="heart" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" stroke="#727272"
-          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <path d="M340.8,98.4c50.7,0,91.9,41.3,91.9,92.3c0,26.2-10.9,49.8-28.3,66.6L256,407.1L105,254.6c-15.8-16.6-25.6-39.1-25.6-63.9  c0-51,41.1-92.3,91.9-92.3c38.2,0,70.9,23.4,84.8,56.8C269.8,121.9,302.6,98.4,340.8,98.4 M340.8,83C307,83,276,98.8,256,124.8  c-20-26-51-41.8-84.8-41.8C112.1,83,64,131.3,64,190.7c0,27.9,10.6,54.4,29.9,74.6L245.1,418l10.9,11l10.9-11l148.3-149.8  c21-20.3,32.8-47.9,32.8-77.5C448,131.3,399.9,83,340.8,83L340.8,83z" stroke="#727272"/>
-        </svg>
-      </nav>
-
-      <div class="photo">
-        <img src="https://s-media-cache-ak0.pinimg.com/236x/3b/36/ca/3b36ca3afe0fa0fd4984b9eee2e154bb.jpg" alt="Article">
-      </div>
-
-      <div class="description">
-        <h2>Article classique</h2>
-        <h4>Populaire</h4>
-        <h1>18&nbsp;$</h1>
-        <p>Petite description du produit ici.</p>
-        <button type="button">Ajouter au panier</button>
-        <button type="button">Liste de souhaits</button>
+    <div class="bottom">
+      <div>© 2026 Limited Drop. Tous droits réservés.</div>
+      <div class="legal">
+        <a href="legal.html">Confidentialité</a>
+        <a href="legal.html">Conditions</a>
+        <a href="legal.html">Support</a>
       </div>
     </div>
-
-  </div>
-</section>
-
-<section id="about-section" class="scroll-fade">
-  <h1>
-    À PROPOS
-    <br>
-    <img src="https://image.ibb.co/nk616F/Layer_1_copy_21.png" width="47" height="11" align="center">
-  </h1>
-  <article>
-    <p>
-      Ici, c’est simple : on fait des trucs solides, propres et pensés pour vrai. Chaque pièce est créée pour que ton animal soit bien, sans compromis, et pour que ça ait de l’allure chez vous aussi. On teste, on ajuste, on recommence, jusqu’à ce que ça fasse du sens. Le but, c’est pas de remplir une page avec des mots : c’est de te donner un produit qui dure, qui est pratique, et que tu vas réellement aimer utiliser au quotidien.
-    </p>
-  </article>
-
-  <div class="social_icons">
-    <div class="square">
-      <div class="icons">
-        <i class="fa fa-facebook" aria-hidden="true"></i>
-      </div>
-    </div>
-    <div class="square">
-      <div class="icons">
-        <i class="fa fa-youtube" aria-hidden="true"></i>
-      </div>
-    </div>
-    <div class="square">
-      <div class="icons">
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-      </div>
-    </div>
-    <div class="square">
-      <div class="icons">
-        <i class="fa fa-dribbble" aria-hidden="true"></i>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer  id="footer" class="site-footer scroll-fade" role="contentinfo">
-  <div class="footer-inner">
-
-    <!-- Colonne gauche: infos compagnie -->
-    <div class="footer-col footer-left">
-      <div class="footer-brand">PURRLY</div>
-      <p class="footer-text">
-        Produits imprimés 3D pour animaux.<br>
-        Faits au Québec, solides, propres, simples.
-      </p>
-
-      <!-- Mets tes vraies infos ici (ou enlève ce bloc si tu veux rien afficher) -->
-      <p class="footer-meta">
-        © <span id="footer-year"></span> PURRLY<br>
-        <!-- Exemple: -->
-        <!-- Lévis, QC • Canada -->
-      </p>
-    </div>
-
-    <!-- Colonne centre: vide (spacer) -->
-    <div class="footer-col footer-center" aria-hidden="true"></div>
-
-    <!-- Colonne droite: liens de politiques -->
-    <div class="footer-col footer-right">
-      <div class="footer-title">Politiques</div>
-      <ul class="footer-links">
-        <li><a href="legal.html#confidentialite">Confidentialité</a></li>
-        <li><a href="terms.html">Conditions d’utilisation</a></li>
-        <li><a href="shipping.html">Livraison</a></li>
-        <li><a href="returns.html">Retours & remboursements</a></li>
-      </ul>
-    </div>
-
   </div>
 </footer>
 
 <script>
-  // Année automatique (optionnel)
-  document.getElementById("footer-year").textContent = new Date().getFullYear();
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+
+  burger?.addEventListener('click', () => {
+    menu.classList.toggle('open');
+  });
+
+  menu?.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    menu.classList.remove('open');
+  });
 </script>
 
 </body>
